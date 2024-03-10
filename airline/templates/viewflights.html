@@ -1,0 +1,72 @@
+{% load static %}
+{% include 'home.html' %}
+{% block body %}
+<body>
+<center><h1>Available Flights</h1></center>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/img.png' %}" class="card-img-top" alt="KLU">
+                <div class="card-body">
+                    <h5 class="card-title">Mumbai-Delhi</h5>
+                    <p class="card-text">Thursday 02/04/2024 11:30AM</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/img_1.png' %}" class="card-img-top" alt="KLU">
+                <div class="card-body">
+                    <h5 class="card-title">Hyderabad-Delhi</h5>
+                    <p class="card-text">Friday 09/04/2024 1:30AM</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/img_2.png' %}" class="card-img-top" alt="KLU">
+                <div class="card-body">
+                    <h5 class="card-title">Hyderabad-Mumbai</h5>
+                    <p class="card-text">Friday 15/03/2024 6:30AM</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/img_3.png' %}" class="card-img-top" alt="KLU">
+                <div class="card-body">
+                    <h5 class="card-title">Kolkata-Delhi</h5>
+                    <p class="card-text">Sunday 20/03/2024 5:00PM</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/img_4.png' %}" class="card-img-top" alt="KLU">
+                <div class="card-body">
+                    <h5 class="card-title">Chennai-Bengaluru</h5>
+                    <p class="card-text">Monday 31/03/2024 3:00AM</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/img_5.png' %}" class="card-img-top" alt="KLU">
+                <div class="card-body">
+                    <h5 class="card-title">Goa-Bengaluru</h5>
+                    <p class="card-text">Friday 22/03/2024 12:00AM</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
