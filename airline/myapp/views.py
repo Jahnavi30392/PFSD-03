@@ -1,11 +1,9 @@
-# views.py
-
+from django.core.mail import send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Signup
-from .api import API  # Import the API class
-
-
+from django.core.mail import send_mail
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -38,25 +36,8 @@ def add_details(request):
         if Signup.objects.filter(user_name=user_name).exists() or Signup.objects.filter(email_id=email_id).exists():
             return render(request, 'signup.html', {'error': 'An account with this username or email already exists.'})
         else:
-            # Create an instance of the API class
-            api = API()
-            # Define query parameters
-            query_params = ('oci', 'oco', 'dci', 'dco', 'dd')
-
-            try:
-                # Fetch data from the API
-                flights_data = api.fetch(query_params)
-
-                # Pass the fetched data to the template
-                return render(request, 'index.html', {'flights_data': flights_data})
-
-            except Exception as e:
-                # Handle errors
-                # You might render an error page or provide a user-friendly message
-                return render(request, 'error.html', {'error_message': str(e)})
-
-            # Save user details after handling API fetch
-            airline_details = Signup(
+            # Save user details
+            user_details = Signup(
                 user_name=user_name,
                 email_id=email_id,
                 password=password,
@@ -64,6 +45,16 @@ def add_details(request):
                 country_name=country_name,
                 mobile_number=mobile_number,
             )
-            airline_details.save()
+            user_details.save()
             return redirect('login')
     return render(request, 'index.html')
+
+def contactmail(request):
+    if request.method == "POST":
+        subject = request.POST['subject']
+        message = request.POST['message']
+        send_mail(subject,message,'samudralajahnavi0806@gmail.com',['samudralajahnavi0806@gmail.com'],fail_silently=False)
+        return HttpResponse("Mailsent Successfully")
+
+    else:
+        return render(request,'mail.html')

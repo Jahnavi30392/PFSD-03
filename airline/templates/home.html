@@ -28,11 +28,12 @@
                     <a class="nav-link {% if request.path == '/viewflights/' %}active{% endif %}" href="{% url 'viewflights' %}">View Flights</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/customersupport/' %}active{% endif %}" href="{% url 'customersupport' %}">Customer Support</a>
+                    <a class="nav-link {% if request.path == '/mail/' %}active{% endif %}" href="{% url 'contactmail' %}">Customer Support</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/viewbookings/' %}active{% endif %}" href="{% url 'viewbookings' %}">View Bookings</a>
                 </li>
+
             </ul>
         </div>
 

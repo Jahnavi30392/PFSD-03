@@ -24,8 +24,7 @@ def signup(request):
 def viewflights(request):
     return render(request, "viewflights.html")
 
-def customersupport(request):
-    return render(request, "customersupport.html")
+
 
 def viewbookings(request):
     return render(request, "viewbookings.html")

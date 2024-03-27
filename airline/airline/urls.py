@@ -27,7 +27,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('home/', views.home, name='home'),
     path('viewflights/', views.viewflights, name='viewflights'),
-    path('customersupport/', views.customersupport, name='customersupport'),
+
     path('viewbookings/', views.viewbookings, name='viewbookings'),
     path("", include("myapp.urls")),
 ]
