@@ -28,3 +28,6 @@ def viewflights(request):
 
 def viewbookings(request):
     return render(request, "viewbookings.html")
+
+def booking(request):
+    return render(request, "booking.html")

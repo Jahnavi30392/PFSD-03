@@ -1,10 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling for Flight Booking form */
+        body {
+            background-image: url('https://papers.co/wallpaper/papers.co-af22-rc-plane-minimal-blue-art-illust-cute-36-3840x2400-4k-wallpaper.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: 50px; /* Adjust as needed */
+        }
+        form {
+            width: 300px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="number"], select, input[type="date"], input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <h2>Flight Booking</h2>
+    <form action="{% url 'booking' %}" method="post"> <!-- Update action attribute -->
+        {% csrf_token %} <!-- Add CSRF token -->
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="aadhar">Aadhar Number</label>
+        <input type="text" id="aadhar" name="aadhar" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required min="0">
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="origin">Origin</label>
+        <input type="text" id="origin" name="origin" required>
+
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" name="destination" required>
+
+        <label for="date">Date of Travel</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time of Travel</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" required min="0">
+
+        <label for="payment">Payment Method</label>
+        <select id="payment" name="payment">
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bank_transfer">Bank Transfer</option>
+        </select>
+
+        <div class="center">
+            <input type="submit" value="Book Now">
+        </div>
+    </form>
+    <script>
+        // Function to get URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Get origin and destination from URL parameters
+        var origin = getParameterByName('origin');
+        var destination = getParameterByName('destination');
+
+        // Set origin and destination values in the form
+        document.getElementById('origin').value = origin;
+        document.getElementById('destination').value = destination;
+
+        // Get date and time from URL parameters
+        var date = getParameterByName('date');
+        var time = getParameterByName('time');
+
+        // Set date and time values in the form
+        document.getElementById('date').value = date;
+        document.getElementById('time').value = time;
+    </script>
 </body>
 </html>

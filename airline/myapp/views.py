@@ -58,3 +58,9 @@ def contactmail(request):
 
     else:
         return render(request,'mail.html')
+
+
+def home(request):
+    return render(request, 'home.html')
+
+
